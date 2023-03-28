@@ -12,3 +12,9 @@ Pinia，轻量级状态管理库；
 ElementPlus，桌面端组件库；
 
 Vite，构建工具；
+
+# 20230328
+1.参照element-plus官网，安装依赖element-plus,并在vite.config.js中配置自动导入
+2.参照vue-router官网，安装依赖vue-router
+
+
