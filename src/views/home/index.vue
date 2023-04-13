@@ -49,7 +49,7 @@
           </div>
         </el-aside>
         <el-main>
-          <el-scrollbar
+          <!-- <el-scrollbar
             style="padding: 20px; box-sizing: border-box; background: #fff"
           >
             <router-view v-slot="{ Component }">
@@ -57,7 +57,7 @@
                 <component :key="routerAlive" :is="Component" />
               </transition>
             </router-view>
-          </el-scrollbar>
+          </el-scrollbar> -->
         </el-main>
       </el-container>
     </el-container>
