@@ -21,7 +21,7 @@ export default defineConfig({
         ElementPlusResolver(),
         // 自动导入图标组件
         IconsResolver({
-          prefix: 'Icon',
+          prefix: 'i',
         }),
       ],
     }),

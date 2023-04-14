@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <el-menu default-active="2" class="el-menu-vertical-demo">
+  <el-menu  class="el-menu-vertical-demo">
     <el-menu-item index="1">
       <el-icon><i-ep-document /></el-icon>
       <span>Navigator Three</span>
