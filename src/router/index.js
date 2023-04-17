@@ -17,6 +17,11 @@ const routes = [
         path: '',
         name: 'homeone',
         component: () => import('@/components/Profile.vue'),
+        // children:[{
+        //   path:'kk',
+        //   name:'kk',
+        //   compoent:()=> import("@/components/HelloWorld.vue")
+        // }]
       },
       {
         // 当 /home/posts 匹配成功

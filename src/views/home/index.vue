@@ -2,40 +2,11 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import MainMenu from '@/components/MainMenu.vue';
+import Tabs from '@/components/Tabs.vue';
 
 const router = useRouter();
 
-let tabIndex = 1;
-const editableTabsValue = ref('1');
-const editableTabs = ref([
-  {
-    title: '我的主页',
-    name: '1',
-    content: 'Tab 1 content',
-  },
-  {
-    title: '我的设置',
-    name: '2',
-    content: 'Tab 2 content',
-  },
-]);
 
-const removeTab = (targetName) => {
-  const tabs = editableTabs.value;
-  let activeName = editableTabsValue.value;
-  if (activeName === targetName) {
-    tabs.forEach((tab, index) => {
-      if (tab.name === targetName) {
-        const nextTab = tabs[index + 1] || tabs[index - 1];
-        if (nextTab) {
-          activeName = nextTab.name;
-        }
-      }
-    });
-  }
-  editableTabsValue.value = activeName;
-  editableTabs.value = tabs.filter((tab) => tab.name !== targetName);
-};
 </script>
 
 <template>
@@ -52,22 +23,7 @@ const removeTab = (targetName) => {
         </div>
       </el-aside>
       <el-main>
-        <el-tabs
-          v-model="editableTabsValue"
-          type="card"
-          class="demo-tabs"
-          closable
-          @tab-remove="removeTab"
-        >
-          <el-tab-pane
-            v-for="item in editableTabs"
-            :key="item.name"
-            :label="item.title"
-            :name="item.name"
-          >
-            {{ item.content }}
-          </el-tab-pane>
-        </el-tabs>
+        <Tabs />
       </el-main>
     </el-container>
   </div>

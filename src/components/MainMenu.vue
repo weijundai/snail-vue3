@@ -7,7 +7,7 @@ const coll=true;
 //主菜单(全局导入Icon，才能在for循环中正常使用Icon)
 let mainMenu = reactive([
   { id: 1, title: '主菜单', icon: 'Location', path: '/home' },
-  { id: 2, title: '执法', icon: 'Document', path: '/home/post' },
+  { id: 2, title: '执法', icon: 'document', path: '/home/post' },
   { id: 3, title: '管理', icon: 'discount', path: '/home' },
   { id: 4, title: '设置', icon: 'setting', path: '/home/post' },
 ]);
