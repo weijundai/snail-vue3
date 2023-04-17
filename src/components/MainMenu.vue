@@ -9,7 +9,7 @@ let mainMenu = reactive([
   { id: 1, title: '主菜单', icon: 'Location', path: '/home' },
   { id: 2, title: '执法', icon: 'Document', path: '/home/post' },
   { id: 3, title: '管理', icon: 'discount', path: '/home' },
-  { id: 4, title: '设置', icon: 'setting', path: '/home' },
+  { id: 4, title: '设置', icon: 'setting', path: '/home/post' },
 ]);
 
 const menuClick = (args) => {
