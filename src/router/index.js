@@ -26,9 +26,10 @@ const routes = [
       {
         // 当 /home/posts 匹配成功
         // posts 将被渲染到 home 的 <router-view> 内部
-        path: 'post',
+        path: 'secmenu/:id',
         name: 'homepost',
-        component: () => import('@/components/Post.vue'),
+        component: () => import('@/components/SecondMenu.vue'),
+        props: true,
       },
     ],
   },

@@ -1,6 +1,5 @@
 <script setup>
-
-import { ref,reactive} from 'vue';
+import { ref, reactive } from 'vue';
 
 let tabIndex = 1;
 const editableTabsValue = ref('1');
@@ -12,7 +11,7 @@ const editableTabs = ref([
   },
   {
     title: '我的设置',
-    name: '2',
+    name: '我的设置',
     content: 'Post',
   },
 ]);
@@ -51,7 +50,7 @@ const removeTab = (targetName) => {
       :name="item.name"
     >
       <keep-alive>
-      <component :is="item.content" />
+        <component :is="item.content" />
       </keep-alive>
     </el-tab-pane>
   </el-tabs>

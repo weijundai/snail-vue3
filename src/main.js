@@ -11,5 +11,5 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 }
 app.component('HelloWorld', HelloWorld)
   .component('Post',Post)
-    app.use(router)
-    .mount('#app')
+app.use(router)
+  .mount('#app')

@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <el-menu default-active="1-1" class="el-menu-vertical-demo">
+  <el-menu default-active="1-1" class="el-menu-vertical-demo2">
     <el-sub-menu index="1">
       <template #title>
         <i-ep-List />
@@ -52,7 +52,7 @@
 </template>
 
 <style scoped>
-.el-menu-vertical-demo {
+.el-menu-vertical-demo2 {
   height: 100vh;
 }
 </style>
