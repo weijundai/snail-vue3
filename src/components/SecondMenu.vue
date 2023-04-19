@@ -4,6 +4,7 @@ const props = defineProps(['name'])
 
 console.log(props.name)
 const secondMenu=Menu[props.name]
+
 console.log(secondMenu)
 </script>
 

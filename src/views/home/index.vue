@@ -6,6 +6,12 @@ import SecondMenu from '@/components/SecondMenu.vue';
 import Tabs from '@/components/Tabs.vue';
 
 const router = useRouter();
+
+let name=ref("one")
+function setName(arg){
+  name=arg
+  console.log(name)
+}
 </script>
 
 <template>
@@ -13,11 +19,11 @@ const router = useRouter();
     <el-container>
       <el-aside>
         <div class="aside-left">
-          <MainMenu />
+          <MainMenu :getMenuName=setName />
         </div>
         <div class="aside-right">
           <el-scrollbar>
-            <router-view />
+            <SecondMenu :name=name />
           </el-scrollbar>
         </div>
       </el-aside>
