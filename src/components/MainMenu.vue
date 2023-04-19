@@ -1,13 +1,13 @@
 <script setup>
 import { ref, reactive } from 'vue';
 import { useRouter } from 'vue-router';
-import {mainMenu} from '@/data'
+import Menu from '@/data'
 
 const router = useRouter();
 const coll = true;
 //全局导入Icon，才能在for循环中正常使用Icon
 //因为mainMenu中的icon是一个字符串，并不是一个组件，所以component动态组件无法识别
-
+const mainMenu=Menu.main
 
 const menuClick = (args) => {
   router.push(args);

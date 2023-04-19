@@ -1,9 +1,10 @@
 <script setup>
-import {mainone} from '@/data'
+import Menu from '@/data'
 const props = defineProps(['name'])
 
-const secondMenu=props.name
-
+console.log(props.name)
+const secondMenu=Menu[props.name]
+console.log(secondMenu)
 </script>
 
 <template>
@@ -15,11 +16,10 @@ const secondMenu=props.name
         <span>主面板</span>
       </template>
     <el-menu-item
-          v-for="(item, index) in mainone"
+          v-for="(item, index) in secondMenu"
           :key="item.id"
           :index="item.title"
         >
-      
          {{item.title}}
     </el-menu-item>
   </el-sub-menu>

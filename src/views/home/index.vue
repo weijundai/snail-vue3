@@ -2,11 +2,10 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import MainMenu from '@/components/MainMenu.vue';
+import SecondMenu from '@/components/SecondMenu.vue';
 import Tabs from '@/components/Tabs.vue';
 
 const router = useRouter();
-
-
 </script>
 
 <template>
