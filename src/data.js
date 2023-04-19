@@ -21,47 +21,47 @@ Menu.one=[
 
 //二级菜单
 Menu.two=[
-  { id: 1, title: '我的办件2',name:'mydaiban',icon: 'Location', path: '/home',
+  { id: 1, title: '我的办件2',name:'mydaiban2',icon: 'Location', path: '/home',
     children:[
-      {id:11, title:'我的待办2',name:'mydaiban',path:'/home/tabs/daiban'},
+      {id:11, title:'我的待办2',name:'mydaiban2',path:'/home/tabs/daiban'},
     ]
   },
-  { id: 2, title: '我的已办2', name:'mydaiban',icon: 'document', path: '/home/post' },
-  { id: 3, title: '我的文件2', name:'mydaiban',icon: 'discount', path: '/home' },
-  { id: 4, title: '公文流转2', name:'mydaiban',icon: 'ChatLineRound', path: '/home/post' },
+  { id: 2, title: '我的已办2', name:'mydaiban2',icon: 'document', path: '/home/post' },
+  { id: 3, title: '我的文件2', name:'mydaiban2',icon: 'discount', path: '/home' },
+  { id: 4, title: '公文流转2', name:'mydaiban2',icon: 'ChatLineRound', path: '/home/post' },
 ];
 
 Menu.three=[
-  { id: 1, title: '我的办件3',name:'mydaiban',icon: 'Location', path: '/home',
+  { id: 1, title: '我的办件3',name:'mydaiban3',icon: 'Location', path: '/home',
     children:[
-      {id:11, title:'我的待办3',name:'mydaiban',path:'/home/tabs/daiban'},
+      {id:11, title:'我的待办3',name:'mydaiban3',path:'/home/tabs/daiban'},
     ]
   },
-  { id: 2, title: '我的已办3', name:'mydaiban',icon: 'document', path: '/home/post' },
-  { id: 3, title: '我的文件3', name:'mydaiban',icon: 'discount', path: '/home' },
-  { id: 4, title: '公文流转3', name:'mydaiban',icon: 'ChatLineRound', path: '/home/post' },
+  { id: 2, title: '我的已办3', name:'mydaiban3',icon: 'document', path: '/home/post' },
+  { id: 3, title: '我的文件3', name:'mydaiban3',icon: 'discount', path: '/home' },
+  { id: 4, title: '公文流转3', name:'mydaiban3',icon: 'ChatLineRound', path: '/home/post' },
 ];
 
 Menu.four=[
-  { id: 1, title: '我的办件4',name:'mydaiban',icon: 'Location', path: '/home',
+  { id: 1, title: '我的办件4',name:'mydaiban4',icon: 'Location', path: '/home',
     children:[
-      {id:11, title:'我的待办4',name:'mydaiban',path:'/home/tabs/daiban'},
+      {id:11, title:'我的待办4',name:'mydaiban4',path:'/home/tabs/daiban'},
     ]
   },
-  { id: 2, title: '我的已办4', name:'mydaiban',icon: 'document', path: '/home/post' },
-  { id: 3, title: '我的文件4', name:'mydaiban',icon: 'discount', path: '/home' },
-  { id: 4, title: '公文流转4', name:'mydaiban',icon: 'ChatLineRound', path: '/home/post' },
+  { id: 2, title: '我的已办4', name:'mydaiban4',icon: 'document', path: '/home/post' },
+  { id: 3, title: '我的文件4', name:'mydaiban4',icon: 'discount', path: '/home' },
+  { id: 4, title: '公文流转4', name:'mydaiban4',icon: 'ChatLineRound', path: '/home/post' },
 ];
 
 Menu.five=[
-  { id: 1, title: '我的办件5',name:'mydaiban',icon: 'Location', path: '/home',
+  { id: 1, title: '我的办件5',name:'mydaiban5',icon: 'Location', path: '/home',
     children:[
-      {id:11, title:'我的待办5',name:'mydaiban',path:'/home/tabs/daiban'},
+      {id:11, title:'我的待办5',name:'mydaiban5',path:'/home/tabs/daiban'},
     ]
   },
-  { id: 2, title: '我的已办5', name:'mydaiban',icon: 'document', path: '/home/post' },
-  { id: 3, title: '我的文件5', name:'mydaiban',icon: 'discount', path: '/home' },
-  { id: 4, title: '公文流转5', name:'mydaiban',icon: 'ChatLineRound', path: '/home/post' },
+  { id: 2, title: '我的已办5', name:'mydaiban5',icon: 'document', path: '/home/post' },
+  { id: 3, title: '我的文件5', name:'mydaiban5',icon: 'discount', path: '/home' },
+  { id: 4, title: '公文流转5', name:'mydaiban5',icon: 'ChatLineRound', path: '/home/post' },
 ];
 
 //导出

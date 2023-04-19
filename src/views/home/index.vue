@@ -1,16 +1,30 @@
 <script setup>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { ref, reactive } from 'vue';
+
 import MainMenu from '@/components/MainMenu.vue';
 import SecondMenu from '@/components/SecondMenu.vue';
 import Tabs from '@/components/Tabs.vue';
+import Menu from '@/data';
 
-const router = useRouter();
+// let name=ref("one")
+let sm1 = reactive(Menu.one);
+const opends=reactive(["1"])
+function setName(arg) {
+  sm1 = Menu[arg];
+  
+}
 
-let name=ref("one")
-function setName(arg){
-  name=arg
-  console.log(name)
+//子菜单事件
+function menuClick(arg) {
+  console.log('ok');
+}
+
+
+const handleOpen = (key, keyPath) => {
+  console.log(key, keyPath)
+}
+const handleClose = (key, keyPath) => {
+  console.log(key, keyPath)
 }
 </script>
 
@@ -19,11 +33,27 @@ function setName(arg){
     <el-container>
       <el-aside>
         <div class="aside-left">
-          <MainMenu :getMenuName=setName />
+          <MainMenu :setName="setName" />
         </div>
         <div class="aside-right">
           <el-scrollbar>
-            <SecondMenu :name=name />
+            <el-menu class="secondmenu" @open="handleOpen" @close="handleClose" :default-openeds="opends">
+             
+                <el-sub-menu
+                  v-for="(item, index) in sm1"
+                  :key="item.id"
+                  :index="item.title"
+                  @click="menuClick(item.name)"
+                >
+                   <template #title>
+                  <i-ep-List />
+                  <span>{{ item.title }}</span>
+                </template>
+                </el-sub-menu>
+             
+
+            </el-menu>
+            
           </el-scrollbar>
         </div>
       </el-aside>
@@ -54,6 +84,9 @@ function setName(arg){
   flex-direction: column;
   width: 47px;
   background-color: #2c2c2c;
+}
+.secondmenu {
+  height: 100vh;
 }
 
 .aside-right {

@@ -1,35 +1,48 @@
 <script setup>
-import Menu from '@/data'
-const props = defineProps(['name'])
+import {reactive} from 'vue';
 
-console.log(props.name)
-const secondMenu=Menu[props.name]
+const props = defineProps(['secMenu']);
+let secMenu=reactive(props.secMenu)
 
-console.log(secondMenu)
+nextTick(()=>{
+  secMenu=props.secMenu
+})
+// watch(props,(newVal) => {
+//   secMenu=newVal
+// })
+//子菜单事件
+function menuClick(arg) {
+
+  console.log(secMenu);
+}
+
+function handl(){
+  console.log(secMenu)
+}
 </script>
 
 <template>
-
-<el-menu  class="secondmenu" >
-  <el-sub-menu index="1">
-   <template #title>
+<!-- <el-button type="primary" @click=handl>second</el-button> -->
+  <el-menu class="secondmenu">
+    <el-sub-menu index="1">
+      <template #title>
         <i-ep-List />
         <span>主面板</span>
       </template>
-    <el-menu-item
-          v-for="(item, index) in secondMenu"
-          :key="item.id"
-          :index="item.title"
-        >
-         {{item.title}}
-    </el-menu-item>
-  </el-sub-menu>
-</el-menu>
-
+      <el-menu-item
+        v-for="(item, index) in secMenu"
+        :key="item.id"
+        :index="item.title"
+        @click="menuClick(item.name)"
+      >
+        {{ item.title }}
+      </el-menu-item>
+    </el-sub-menu>
+  </el-menu>
 </template>
 
 <style scoped>
-.secondmenu{
+.secondmenu {
   height: 100vh;
 }
 </style>

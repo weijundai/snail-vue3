@@ -1,17 +1,16 @@
 <script setup>
 import { ref, reactive } from 'vue';
-import { useRouter } from 'vue-router';
+
 import Menu from '@/data'
-const props = defineProps(['getMenuName'])
-const router = useRouter();
+const props = defineProps(['setName'])
+
 const coll = true;
 //全局导入Icon，才能在for循环中正常使用Icon
 //因为mainMenu中的icon是一个字符串，并不是一个组件，所以component动态组件无法识别
 const mainMenu=Menu.main
 
 const menuClick = (arg) => {
-  props.getMenuName(arg)
-  console.log(arg)
+  props.setName(arg)
 };
 </script>
 
@@ -21,7 +20,7 @@ const menuClick = (arg) => {
     :collapse="coll"
     background-color="#2c2c2c"
     text-color="#fff"
-  >
+  > 
     <el-menu-item
       v-for="(item, index) in mainMenu"
       :key="item.id"
@@ -32,6 +31,7 @@ const menuClick = (arg) => {
       <template #title>{{ item.title }}</template>
     </el-menu-item>
   </el-menu>
+
 </template>
 
 <style scoped></style>
