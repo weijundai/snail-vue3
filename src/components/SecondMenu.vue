@@ -1,15 +1,21 @@
 <script setup>
-import {reactive} from 'vue';
+import {ref,inject } from 'vue';
+const opends=reactive(["1"])
+// const props = defineProps(['secMenu']);
+// let secMenu=ref(props.secMenu)
+// console.log("props.secMenu: "+props.secMenu)
+// console.log("secMenu: "+secMenu)
+// setTimeout(()=>{
+//   watch(secMenu,(newval,oldval)=>{
+//       secMenu=newval
+//         console.log(newval) 
+//         })
+//   },100)
+//依赖注入方式取得值
+const secMenu = inject('sm')
 
-const props = defineProps(['secMenu']);
-let secMenu=reactive(props.secMenu)
 
-nextTick(()=>{
-  secMenu=props.secMenu
-})
-// watch(props,(newVal) => {
-//   secMenu=newVal
-// })
+
 //子菜单事件
 function menuClick(arg) {
 
@@ -23,7 +29,7 @@ function handl(){
 
 <template>
 <!-- <el-button type="primary" @click=handl>second</el-button> -->
-  <el-menu class="secondmenu">
+  <el-menu class="secondmenu" :default-openeds="opends" :re="secMenu">
     <el-sub-menu index="1">
       <template #title>
         <i-ep-List />

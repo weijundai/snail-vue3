@@ -1,17 +1,18 @@
 <script setup>
-import { ref, reactive } from 'vue';
+import { ref, reactive,provide } from 'vue';
 
 import MainMenu from '@/components/MainMenu.vue';
 import SecondMenu from '@/components/SecondMenu.vue';
 import Tabs from '@/components/Tabs.vue';
 import Menu from '@/data';
-
-// let name=ref("one")
-let sm1 = reactive(Menu.one);
 const opends=reactive(["1"])
+let name=ref("one")
+let sm1 = ref(Menu[name.value]);
+provide('sm', sm1)
 function setName(arg) {
-  sm1 = Menu[arg];
-  
+  name.value=arg
+  sm1.value = Menu[name.value];
+  // console.log(sm1)
 }
 
 //子菜单事件
@@ -33,11 +34,13 @@ const handleClose = (key, keyPath) => {
     <el-container>
       <el-aside>
         <div class="aside-left">
-          <MainMenu :setName="setName" />
+          <MainMenu @setName="setName" />
         </div>
         <div class="aside-right">
           <el-scrollbar>
-            <el-menu class="secondmenu" @open="handleOpen" @close="handleClose" :default-openeds="opends">
+
+            <SecondMenu />
+            <!-- <el-menu class="secondmenu" @open="handleOpen" @close="handleClose" :default-openeds="opends">
              
                 <el-sub-menu
                   v-for="(item, index) in sm1"
@@ -52,7 +55,7 @@ const handleClose = (key, keyPath) => {
                 </el-sub-menu>
              
 
-            </el-menu>
+            </el-menu> -->
             
           </el-scrollbar>
         </div>

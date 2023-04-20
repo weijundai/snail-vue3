@@ -1,8 +1,8 @@
 <script setup>
-import { ref, reactive } from 'vue';
+import { ref} from 'vue';
 
 import Menu from '@/data'
-const props = defineProps(['setName'])
+const emits = defineEmits(['setName'])
 
 const coll = true;
 //全局导入Icon，才能在for循环中正常使用Icon
@@ -10,7 +10,7 @@ const coll = true;
 const mainMenu=Menu.main
 
 const menuClick = (arg) => {
-  props.setName(arg)
+ emits('setName',arg)
 };
 </script>
 
