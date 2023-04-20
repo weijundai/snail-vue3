@@ -40,7 +40,9 @@ let tabs=ref([
 ])
 
 
-//组件间传值，依赖注入设置区
+/*
+ *组件间传值，依赖注入设置区
+ */
 //向二级目录组件SecondMenu传值
 provide('sm', sm1)
 //向tabs传值，用于打开新的tab-pane
