@@ -31,10 +31,6 @@ const removeTab = (targetName) => {
   editableTabs.value = tabs.filter((tab) => tab.name !== targetName);
 };
 
-
-/*
- * 暴露给组件外使用的变量与方法
- */
 </script>
 
 <template>
