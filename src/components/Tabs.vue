@@ -1,25 +1,18 @@
 <script setup>
-import { ref, reactive } from 'vue';
+import { ref, reactive,inject } from 'vue';
 
 let tabIndex = 1;
-const editableTabsValue = ref('1');
-const editableTabs = ref([
-  {
-    title: '我的主页',
-    name: '1',
-    content: 'HelloWorld',
-  },
-  {
-    title: '我的设置',
-    name: '我的设置',
-    content: 'Post',
-  },
-]);
+const editableTabsValue = inject("editableTabsValue")
+const editableTabs = inject("tabs")
 
+/*
+ * tabs删除方法
+*/
 const removeTab = (targetName) => {
   console.log(targetName);
   const tabs = editableTabs.value;
   let activeName = editableTabsValue.value;
+  //删除激活的选项卡时，选择新的激活选项卡
   if (activeName === targetName) {
     tabs.forEach((tab, index) => {
       if (tab.name === targetName) {
@@ -30,9 +23,18 @@ const removeTab = (targetName) => {
       }
     });
   }
+  //激活新的选项卡
   editableTabsValue.value = activeName;
+  //更新选项卡列表
+  //filter函数用于对数组过滤。 回调为必须，数组中的每个元素都会执行这个函数。且如果返回值为 true，则该元素被保留；
+  //函数的第一个参数 tab 也为必须，代表当前元素的值。
   editableTabs.value = tabs.filter((tab) => tab.name !== targetName);
 };
+
+
+/*
+ * 暴露给组件外使用的变量与方法
+ */
 </script>
 
 <template>
@@ -40,7 +42,6 @@ const removeTab = (targetName) => {
     v-model="editableTabsValue"
     type="card"
     class="demo-tabs"
-    closable
     @tab-remove="removeTab"
   >
     <el-tab-pane
@@ -48,6 +49,7 @@ const removeTab = (targetName) => {
       :key="item.name"
       :label="item.title"
       :name="item.name"
+      :closable="item.closable?false:true"
     >
       <keep-alive>
         <component :is="item.content" />
