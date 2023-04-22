@@ -5,6 +5,7 @@ import MainMenu from '@/components/MainMenu.vue';
 import SecondMenu from '@/components/SecondMenu.vue';
 import Tabs from '@/components/Tabs.vue';
 import Menu from '@/data';
+// import mock from '@/mock/mock'
 
 //点击主菜单->显示二级菜单
 let name=ref("one")
