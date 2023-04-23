@@ -16,9 +16,7 @@
   },
   "devDependencies": {
     "@iconify-json/ep": "^1.1.10",
-    "@types/mockjs": "^1.0.7",
     "@vitejs/plugin-vue": "^4.0.0",
-    "mockjs": "^1.1.0",
     "unplugin-auto-import": "^0.15.2",
     "unplugin-icons": "^0.16.1",
     "unplugin-vue-components": "^0.24.1",
