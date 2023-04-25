@@ -24,10 +24,11 @@ const menuClick = (arg) => {
     <el-menu-item
       v-for="(item, index) in mainMenu"
       :key="item.id"
-      :index="item.title"
+      :index="item.id.toString()"
       @click="menuClick(item.id)"
     >
-      <component :is="item.icon"></component>
+      <component :is="item.icon">{{item.title}}</component>
+     
       <template #title>{{ item.title }}</template>
     </el-menu-item>
   </el-menu>

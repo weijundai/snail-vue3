@@ -36,10 +36,8 @@ function getMenuItem(arg) {
 let tabs=ref([
   {"id":2,"title":"办公","icon": "document", "parentId":0,"content":"HelloWorld","sort":99}
 ])
-
-
 /*
- *组件间传值，依赖注入设置区
+ *组件间传值，依赖注入
  */
 //向二级目录组件SecondMenu传值
 provide('sm', sm1)
