@@ -7,15 +7,15 @@ import Tabs from '@/components/Tabs.vue';
 import Menus from '@/data_menus.json';
 
 
-//对菜单按sort值从小到大排序
-// let sortMenus=Menus.data.toSorted((a,b) => a.sort - b.sort)
+//对菜单按sort值从大到小排序
+let sortMenus=Menus.data.sort((a,b) => b.sort-a.sort)
 //点击主菜单->显示二级菜单
 let menuId=ref(1)
-let sm1=ref(Menus.data.filter(value=>value.parentId===menuId.value))
+let sm1=ref(sortMenus.filter(value=>value.parentId===menuId.value))
 
 function setName(arg) {
   menuId.value=arg
-  sm1.value =Menus.data.filter(value=>value.parentId===arg)
+  sm1.value =sortMenus.filter(value=>value.parentId===arg)
   // console.log(sm1)
 }
 
@@ -30,7 +30,7 @@ function getMenuItem(arg) {
     tabs.value.push(arg)
     editableTabsValue.value=arg.id
   }
-  
+  console.log(typeof arg.id.toString())
 }
 //tabs标签设置区
 let tabs=ref([
@@ -43,6 +43,7 @@ let tabs=ref([
  */
 //向二级目录组件SecondMenu传值
 provide('sm', sm1)
+provide('sortMenus',sortMenus)
 //向tabs传值，用于打开新的tab-pane
 provide('tabs',tabs)
 provide('editableTabsValue',editableTabsValue)

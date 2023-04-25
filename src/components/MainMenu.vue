@@ -7,7 +7,7 @@ const emits = defineEmits(['setName'])
 const coll = true;
 //全局导入Icon，才能在for循环中正常使用Icon
 //因为mainMenus中的icon是一个字符串，并不是一个组件，所以component动态组件无法识别
-const mainMenu=Menus.data.filter(value=>value.parentId===0)
+const mainMenu=inject('sortMenus').filter(value=>value.parentId===0)
 
 const menuClick = (arg) => {
  emits('setName',arg)
