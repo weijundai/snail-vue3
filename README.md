@@ -14,7 +14,8 @@ ElementPlus，桌面端组件库；
 Vite，构建工具；
 
 # 20230425
-构建Home页Tabs组件
+1.构建Home页Tabs组件
+2.json方式渲染菜单
 
 # 20230412
 1.构建Login页
