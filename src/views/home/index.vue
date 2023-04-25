@@ -4,16 +4,18 @@ import { ref, reactive,provide } from 'vue';
 import MainMenu from '@/components/MainMenu.vue';
 import SecondMenu from '@/components/SecondMenu.vue';
 import Tabs from '@/components/Tabs.vue';
-import Menu from '@/data';
-// import mock from '@/mock/mock'
+import Menus from '@/data_menus.json';
 
+
+//对菜单按sort值从小到大排序
+// let sortMenus=Menus.data.toSorted((a,b) => a.sort - b.sort)
 //点击主菜单->显示二级菜单
-let name=ref("one")
-let sm1 = ref(Menu[name.value]);
+let menuId=ref(1)
+let sm1=ref(Menus.data.filter(value=>value.parentId===menuId.value))
 
 function setName(arg) {
-  name.value=arg
-  sm1.value = Menu[name.value];
+  menuId.value=arg
+  sm1.value =Menus.data.filter(value=>value.parentId===arg)
   // console.log(sm1)
 }
 
@@ -23,21 +25,16 @@ function getMenuItem(arg) {
   //首先得判断arg.name在tabs中是否存在
   //如果已经存在，则不导入，仅做激活,如果不存在则导入，并激活
   if (tabs.value.includes(arg)){
-    editableTabsValue.value=arg.name
+    editableTabsValue.value=arg.id
   }else {
     tabs.value.push(arg)
-    editableTabsValue.value=arg.name
+    editableTabsValue.value=arg.id
   }
   
 }
 //tabs标签设置区
 let tabs=ref([
-  {
-    title: '我的主页',
-    name: '1',
-    content: 'HelloWorld',
-    closable:'false'
-  },
+  {"id":2,"title":"办公","icon": "document", "parentId":0,"content":"HelloWorld","sort":99}
 ])
 
 

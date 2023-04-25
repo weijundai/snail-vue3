@@ -1,13 +1,13 @@
 <script setup>
 import { ref} from 'vue';
 
-import Menus from '@/data_menus.json'
+import Menu from '@/data'
 const emits = defineEmits(['setName'])
 
 const coll = true;
 //全局导入Icon，才能在for循环中正常使用Icon
-//因为mainMenus中的icon是一个字符串，并不是一个组件，所以component动态组件无法识别
-const mainMenu=Menus.data.filter(value=>value.parentId===0)
+//因为mainMenu中的icon是一个字符串，并不是一个组件，所以component动态组件无法识别
+const mainMenu=Menu.main
 
 const menuClick = (arg) => {
  emits('setName',arg)
@@ -25,7 +25,7 @@ const menuClick = (arg) => {
       v-for="(item, index) in mainMenu"
       :key="item.id"
       :index="item.title"
-      @click="menuClick(item.id)"
+      @click="menuClick(item.name)"
     >
       <component :is="item.icon"></component>
       <template #title>{{ item.title }}</template>

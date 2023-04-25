@@ -1,5 +1,6 @@
 <script setup>
 import {ref,inject } from 'vue';
+import Menus from '@/data_menus.json';
 
 const emits = defineEmits(['getMenuItem'])
 //展开哪些二级目录
@@ -18,19 +19,19 @@ function menuClick(arg) {
 </script>
 
 <template>
-  <el-menu class="secondmenu" :default-openeds="opends" :re="secMenu">
-    <el-sub-menu index="1">
+  <el-menu class="secondmenu" :default-openeds="opends">
+    <el-sub-menu  v-for="(item,index) in secMenu" :index="(index+1).toString()">
       <template #title>
-        <i-ep-List />
-        <span>主面板</span>
+        <component :is="item.icon" class="comclass"></component>
+        <span>{{item.title}}</span>
       </template>
       <el-menu-item
-        v-for="(item, index) in secMenu"
-        :key="item.id"
-        :index="item.title"
-        @click="menuClick(item)"
+        v-for="(item1, index1) in Menus.data.filter(value=>value.parentId===item.id)"
+        :key="item1.id"
+        :index="(index1+1).toString()"
+        @click="menuClick(item1)"
       >
-        {{ item.title }}
+        {{ item1.title }}
       </el-menu-item>
     </el-sub-menu>
   </el-menu>
@@ -39,5 +40,10 @@ function menuClick(arg) {
 <style scoped>
 .secondmenu {
   height: 100vh;
+}
+.comclass{
+  width:20px;
+  height:20px;
+  padding-right:10px;
 }
 </style>
