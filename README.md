@@ -13,16 +13,20 @@ ElementPlus，桌面端组件库；
 
 Vite，构建工具；
 
-# 20230425
+# 日志
+## 20230425
 1.构建Home页Tabs组件
+
 2.json方式渲染菜单
 
-# 20230412
+## 20230412
 1.构建Login页
+
 2.构建Home页框架
 
-# 20230328
+## 20230328
 1.参照element-plus官网，安装依赖element-plus,并在vite.config.js中配置自动导入
+
 2.参照vue-router官网，安装依赖vue-router
 
 

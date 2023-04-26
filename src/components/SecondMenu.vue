@@ -39,11 +39,16 @@ function menuClick(arg) {
 
 <style scoped>
 .secondmenu {
-  height: 100vh;
+  /*有<el-header>时使用*/
+  height: calc(100vh - 60px);
+  /* height: 100vh; */
 }
 .comclass{
   width:20px;
   height:20px;
   padding-right:10px;
+}
+:deep(.el-menu-item.is-active) {
+  background-color:#e3f1ff;
 }
 </style>

@@ -20,7 +20,7 @@ function setName(arg) {
 }
 
 //二级菜单返回具体item供tabs使用
-let editableTabsValue=ref("1")
+let editableTabsValue=ref(2)
 function getMenuItem(arg) {
   //首先得判断arg.name在tabs中是否存在
   //如果已经存在，则不导入，仅做激活,如果不存在则导入，并激活
@@ -30,7 +30,7 @@ function getMenuItem(arg) {
     tabs.value.push(arg)
     editableTabsValue.value=arg.id
   }
-  console.log(typeof arg.id.toString())
+  console.log(typeof arg.id)
 }
 //tabs标签设置区
 let tabs=ref([
@@ -49,56 +49,69 @@ provide('editableTabsValue',editableTabsValue)
 
 <template>
   <div class="common-layout">
-    <el-container>
-      <el-aside>
-        <div class="aside-left">
-          <MainMenu @setName="setName" />
-        </div>
-        <div class="aside-right">
-          <el-scrollbar>
 
-            <SecondMenu @getMenuItem="getMenuItem" />
-            
-          </el-scrollbar>
-        </div>
-      </el-aside>
-      <el-main>
-        <Tabs />
-      </el-main>
+     <el-container>
+      <el-header>
+        <div class="el-header-left" >交通运输综合服务（模拟）平台</div>
+        <div class="el-header-right">退 出</div>
+      </el-header>
+      <el-container>
+        <el-aside>
+          <div class="aside-left">
+            <el-scrollbar>
+              <MainMenu @setName="setName" />
+            </el-scrollbar>
+          </div>
+          <div class="aside-right">
+            <el-scrollbar>
+
+              <SecondMenu @getMenuItem="getMenuItem" />
+              
+            </el-scrollbar>
+          </div>
+        </el-aside>
+        <el-main>
+          <Tabs />
+        </el-main>
+      </el-container>
     </el-container>
   </div>
 </template>
 
 <style scoped>
-.el-container {
-  /*有<el-header>时使用*/
-  /* height: calc(100vh - 60px); */
-  height: 100vh;
+
+.el-header{
+  background-color:#409EFF;
+  display: flex;
+   justify-content: space-between;
+  align-items: center;
+}
+.el-header-left{
+  color: #fff;
+  font:30px bolder;
+
+}
+
+.el-header-right{
+  color:#fff;
+  font:20px bolder;
 }
 .el-aside {
   display: flex;
   width: 250px;
   /*有<el-header>时使用*/
-  /* height: calc(100vh - 60px); */
-  height: 100vh;
+  height: calc(100vh - 60px);
+  /* height: 100vh; */
 }
 
 .aside-left {
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 47px;
-  background-color: #2c2c2c;
-}
-.secondmenu {
-  height: 100vh;
+  width: 65px;
 }
 
 .aside-right {
-  width: 200px;
-}
-
-.el-menu-vertical-demo {
-  height: calc(100vh - 60px);
+  width: 180px;
 }
 </style>
