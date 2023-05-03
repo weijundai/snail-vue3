@@ -16,7 +16,7 @@ const routes = [
         // profile 将被渲染到 home 的 <router-view> 内部
         path: '',
         name: 'homeone',
-        component: () => import('@/components/Profile.vue'),
+        component: () => import('@/components/HelloWorld.vue'),
         // children:[{
         //   path:'kk',
         //   name:'kk',
