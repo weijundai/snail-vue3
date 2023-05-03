@@ -3,7 +3,7 @@ import { ref, reactive,provide } from 'vue';
 import MainMenu from '@/views/home/MainMenu.vue';
 import SecondMenu from '@/views/home/SecondMenu.vue';
 import Tabs from '@/views/home/Tabs.vue';
-import Menus from '@/data_menus.json';
+import Menus from '@/datas/data_menus.json';
 
 //对菜单按sort值从大到小排序
 let sortMenus=Menus.data.sort((a,b) => b.sort-a.sort)

@@ -32,13 +32,13 @@ const submitForm = async (formEl) => {
       //   userName: ruleForm.username || '',
       //   passwordMd5: md5(ruleForm.password)
       // }).then(res => {
-      //   localSet('token', res)
-      //   window.location.href = '/'
+      //   localSet('token', res.data)
+      //   window.location.href = '/home'
       // })
       //下列代码仅为测试（start)
       if (ruleForm.name === '111' && ruleForm.password === '111') {
         router.push({
-          name: 'homeone',
+          name: 'home',
         });
       } else {
         console.log('用户名或密码错误');

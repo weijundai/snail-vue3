@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue';
 
-import Menus from '@/data_menus.json'
 const emits = defineEmits(['setName'])
 const activeIndex=ref("1")
 const coll = true;
