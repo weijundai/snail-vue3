@@ -33,7 +33,7 @@ const menuClick = (arg) => {
 <style scoped>
 .mainmenu {
   /*有<el-header>时使用*/
-  height: calc(100vh - 60px);
+  height: calc(100vh - 173px);
   /* height: 100vh; */
 }
 

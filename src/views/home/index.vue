@@ -1,8 +1,9 @@
 <script setup>
 import { ref, reactive,provide } from 'vue';
-import MainMenu from '@/views/home/MainMenu.vue';
-import SecondMenu from '@/views/home/SecondMenu.vue';
-import Tabs from '@/views/home/Tabs.vue';
+import MainMenu from './MainMenu.vue';
+import SecondMenu from './SecondMenu.vue';
+import SetupMenu from './SetupMenu.vue';
+import Tabs from './Tabs.vue';
 import Menus from '@/datas/data_menus.json';
 
 //对菜单按sort值从大到小排序
@@ -52,7 +53,7 @@ function getMenuItem(arg) {
      <el-container>
       <el-header>
         <div class="el-header-left" >交通运输综合服务（模拟）平台</div>
-        <div class="el-header-right">退 出</div>
+        <div class="el-header-right"></div>
       </el-header>
       <el-container>
         <el-aside>
@@ -60,6 +61,8 @@ function getMenuItem(arg) {
             <el-scrollbar>
               <MainMenu @setName="setName" />
             </el-scrollbar>
+              <SetupMenu />
+            
           </div>
           <div class="aside-right">
             <el-scrollbar>
@@ -107,6 +110,7 @@ function getMenuItem(arg) {
   display: flex;
   align-items: center;
   flex-direction: column;
+
   width: 65px;
 }
 
