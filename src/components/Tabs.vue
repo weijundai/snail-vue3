@@ -27,7 +27,7 @@ const removeTab = (targetId) => {
   editableTabsValue.value = activeName;
   //更新选项卡列表
   //filter函数用于对数组过滤。 回调为必须，数组中的每个元素都会执行这个函数。且如果返回值为 true，则该元素被保留；
-  //函数的第一个参数 tab 也为必须，代表当前元素的值。
+//函数的第一个参数 tab 也为必须，代表当前元素的值。
   editableTabs.value = tabs.filter((tab) => tab.id !== targetId);
 };
 
