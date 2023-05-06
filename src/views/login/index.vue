@@ -2,7 +2,7 @@
 <script setup>
 import { ref, reactive } from 'vue';
 import { User, Lock } from '@element-plus/icons-vue';
-import { useRoute, useRouter } from 'vue-router';
+import {  useRouter } from 'vue-router';
 
 const ruleForm = reactive({
   name: '',

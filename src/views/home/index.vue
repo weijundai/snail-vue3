@@ -27,7 +27,8 @@ provide('sortMenus',sortMenus)
 provide('tabs',tabs)
 provide('editableTabsValue',editableTabsValue)
 
-function setName(arg) {
+//供MinaMenu.vue调用，通过主菜单id获取二级菜单列表
+function getSecondMenu(arg) {
   menuId.value=arg
   sm1.value =sortMenus.filter(value=>value.parentId===arg)
   // console.log(sm1)
@@ -59,7 +60,7 @@ function getMenuItem(arg) {
         <el-aside>
           <div class="aside-left">
             <el-scrollbar>
-              <MainMenu @setName="setName" />
+              <MainMenu @getSecondMenu="getSecondMenu" />
             </el-scrollbar>
               <SetupMenu />
             

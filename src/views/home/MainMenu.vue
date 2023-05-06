@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 
-const emits = defineEmits(['setName'])
+const emits = defineEmits(['getSecondMenu'])
 const activeIndex=ref("1")
 const coll = true;
 //全局导入Icon，才能在for循环中正常使用Icon
@@ -9,7 +9,7 @@ const coll = true;
 const mainMenu=inject('sortMenus').filter(value=>value.parentId===0)
 
 const menuClick = (arg) => {
- emits('setName',arg)
+ emits('getSecondMenu',arg)
 };
 </script>
 

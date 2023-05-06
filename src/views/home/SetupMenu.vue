@@ -1,7 +1,14 @@
 <script setup>
 import { ref } from 'vue'
+import {  useRouter } from 'vue-router'
 
 const isCollapse = ref(true)
+const router = useRouter();
+function exit(){
+ router.push({
+          name: 'login',
+        });
+}
 </script>
 <template>
     <el-menu
@@ -17,9 +24,9 @@ const isCollapse = ref(true)
       </template>
         <el-menu-item index="1-1">修改资料</el-menu-item>
         <el-menu-item index="1-2">修改密码</el-menu-item>
-        <el-menu-item index="1-3">退   出</el-menu-item>
+        <el-menu-item index="1-3" @click="exit()">退   出</el-menu-item>
     </el-sub-menu>
-    <el-menu-item index="2">
+    <el-menu-item index="2" >
         <el-icon style="color: black;"><Switch /></el-icon>
       <template #title>隐藏二级菜单</template>
     </el-menu-item>
