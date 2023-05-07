@@ -5,6 +5,7 @@ let tabIndex = 1;
 const editableTabsValue = inject("editableTabsValue")
 const editableTabs = inject("tabs")
 
+
 /*
  * tabs删除方法
 */

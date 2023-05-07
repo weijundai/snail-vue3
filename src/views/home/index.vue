@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive,provide } from 'vue';
+import { ref, reactive,provide, watch } from 'vue';
 import MainMenu from './MainMenu.vue';
 import SecondMenu from './SecondMenu.vue';
 import SetupMenu from './SetupMenu.vue';
@@ -16,6 +16,8 @@ let editableTabsValue=ref(2)
 let tabs=ref([
   {"id":2,"title":"办公","icon": "document", "parentId":0,"content":"HelloWorld","sort":99}
 ])
+//二级菜单的显示与隐藏
+let isShowSecondMenu=ref(true)
 
 /*
  *组件间传值，依赖注入
@@ -27,11 +29,21 @@ provide('sortMenus',sortMenus)
 provide('tabs',tabs)
 provide('editableTabsValue',editableTabsValue)
 
-//供MinaMenu.vue调用，通过主菜单id获取二级菜单列表
+//供MinaMenu.vue调用，通过主菜单id获取二级菜单列表,
+//单击激活的一级菜单，隐藏二级菜单目录，否则显示二级菜单目录
+//单击非激活的一级菜单，显示二级菜单目录
 function getSecondMenu(arg) {
-  menuId.value=arg
-  sm1.value =sortMenus.filter(value=>value.parentId===arg)
-  // console.log(sm1)
+  if (menuId.value===arg){
+    hideSecondMenu()
+  }else{
+    menuId.value=arg
+    sm1.value =sortMenus.filter(value=>value.parentId===arg)
+    // console.log(sm1)
+    if (isShowSecondMenu.value===false){
+      hideSecondMenu()
+    }
+  }
+ 
 }
 
 //二级菜单返回具体item供tabs使用
@@ -46,6 +58,13 @@ function getMenuItem(arg) {
   }
   console.log(typeof arg.id)
 }
+//二级菜单的显示与隐藏
+function hideSecondMenu(){
+  isShowSecondMenu.value = !isShowSecondMenu.value
+
+}
+
+
 </script>
 
 <template>
@@ -57,15 +76,15 @@ function getMenuItem(arg) {
         <div class="el-header-right"></div>
       </el-header>
       <el-container>
-        <el-aside>
+        <el-aside :class="{active:isShowSecondMenu}">
           <div class="aside-left">
             <el-scrollbar>
-              <MainMenu @getSecondMenu="getSecondMenu" />
+              <MainMenu @getSecondMenu="getSecondMenu" @hideSecondMenu="hideSecondMenu"/>
             </el-scrollbar>
-              <SetupMenu />
+              <SetupMenu @hideSecondMenu="hideSecondMenu" />
             
           </div>
-          <div class="aside-right">
+          <div class="aside-right" :class="{active:isShowSecondMenu}" v-show="isShowSecondMenu">
             <el-scrollbar>
 
               <SecondMenu @getMenuItem="getMenuItem" />
@@ -99,23 +118,29 @@ function getMenuItem(arg) {
   color:#fff;
   font:20px bolder;
 }
-.el-aside {
+.el-aside.active{
   display: flex;
   width: 250px;
   /*有<el-header>时使用*/
   height: calc(100vh - 60px);
   /* height: 100vh; */
 }
+.el-aside{ 
+  display: flex;
+  width: 65px;
+  /*有<el-header>时使用*/
+  height: calc(100vh - 60px);
+  /* height: 100vh; */
+}
 
-.aside-left {
+.aside-left{
   display: flex;
   align-items: center;
   flex-direction: column;
-
   width: 65px;
 }
 
-.aside-right {
+.aside-right.active{
   width: 180px;
 }
 </style>

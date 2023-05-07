@@ -1,16 +1,17 @@
 <script setup>
-import { ref } from 'vue';
+import { ref ,inject, watch} from 'vue';
 
-const emits = defineEmits(['getSecondMenu'])
+const emits = defineEmits(['getSecondMenu','hideSecondMenu'])
 const activeIndex=ref("1")
 const coll = true;
 //全局导入Icon，才能在for循环中正常使用Icon
 //因为mainMenus中的icon是一个字符串，并不是一个组件，所以component动态组件无法识别
-const mainMenu=inject('sortMenus').filter(value=>value.parentId===0)
+const mainMenu = inject('sortMenus').filter(value=>value.parentId===0)
 
 const menuClick = (arg) => {
  emits('getSecondMenu',arg)
 };
+
 </script>
 
 <template>
