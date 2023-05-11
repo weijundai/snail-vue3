@@ -34,16 +34,15 @@ provide('editableTabsValue',editableTabsValue)
 //单击非激活的一级菜单，显示二级菜单目录
 function getSecondMenu(arg) {
   if (menuId.value===arg){
-    hideSecondMenu()
+     isShowSecondMenu.value = !isShowSecondMenu.value
   }else{
     menuId.value=arg
     sm1.value =sortMenus.filter(value=>value.parentId===arg)
     // console.log(sm1)
     if (isShowSecondMenu.value===false){
-      hideSecondMenu()
+       isShowSecondMenu.value = !isShowSecondMenu.value
     }
   }
- 
 }
 
 //二级菜单返回具体item供tabs使用
@@ -58,13 +57,6 @@ function getMenuItem(arg) {
   }
   console.log(typeof arg.id)
 }
-//二级菜单的显示与隐藏
-function hideSecondMenu(){
-  isShowSecondMenu.value = !isShowSecondMenu.value
-
-}
-
-
 </script>
 
 <template>
@@ -79,9 +71,9 @@ function hideSecondMenu(){
         <el-aside :class="{active:isShowSecondMenu}">
           <div class="aside-left">
             <el-scrollbar>
-              <MainMenu @getSecondMenu="getSecondMenu" @hideSecondMenu="hideSecondMenu"/>
+              <MainMenu @getSecondMenu="getSecondMenu" />
             </el-scrollbar>
-              <SetupMenu @hideSecondMenu="hideSecondMenu" />
+              <SetupMenu />
             
           </div>
           <div class="aside-right" :class="{active:isShowSecondMenu}" v-show="isShowSecondMenu">

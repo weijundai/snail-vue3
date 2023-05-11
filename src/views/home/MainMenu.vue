@@ -1,7 +1,7 @@
 <script setup>
 import { ref ,inject, watch} from 'vue';
 
-const emits = defineEmits(['getSecondMenu','hideSecondMenu'])
+const emits = defineEmits(['getSecondMenu'])
 const activeIndex=ref("1")
 const coll = true;
 //全局导入Icon，才能在for循环中正常使用Icon
