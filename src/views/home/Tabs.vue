@@ -1,14 +1,13 @@
 <script setup>
-import { ref, reactive,inject } from 'vue';
+import { ref, reactive, inject } from 'vue';
 
 let tabIndex = 1;
-const editableTabsValue = inject("editableTabsValue")
-const editableTabs = inject("tabs")
-
+const editableTabsValue = inject('editableTabsValue');
+const editableTabs = inject('tabs');
 
 /*
  * tabs删除方法
-*/
+ */
 const removeTab = (targetId) => {
   console.log(targetId);
   const tabs = editableTabs.value;
@@ -28,10 +27,9 @@ const removeTab = (targetId) => {
   editableTabsValue.value = activeName;
   //更新选项卡列表
   //filter函数用于对数组过滤。 回调为必须，数组中的每个元素都会执行这个函数。且如果返回值为 true，则该元素被保留；
-//函数的第一个参数 tab 也为必须，代表当前元素的值。
+  //函数的第一个参数 tab 也为必须，代表当前元素的值。
   editableTabs.value = tabs.filter((tab) => tab.id !== targetId);
 };
-
 </script>
 
 <template>
@@ -42,12 +40,23 @@ const removeTab = (targetId) => {
     @tab-remove="removeTab"
   >
     <el-tab-pane
-      v-for="(item,index) in editableTabs"
+      v-for="(item, index) in editableTabs"
       :key="item.id"
       :label="item.title"
       :name="item.id"
-      :closable="item.closable?false:true"
+      :closable="item.closable ? false : true"
     >
+      <template #label>
+        <el-dropdown trigger="contextmenu">
+          {{ item.title }}
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item> 关闭其它 </el-dropdown-item>
+              <el-dropdown-item> 关闭全部 </el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+      </template>
       <keep-alive>
         <component :is="item.content" />
       </keep-alive>
