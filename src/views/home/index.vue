@@ -14,7 +14,7 @@ let sm1=ref(sortMenus.filter(value=>value.parentId===menuId.value))
 let editableTabsValue=ref(2)
 //tabs标签初始设置区
 let tabs=ref([
-  {"id":2,"title":"办公","icon": "document", "parentId":0,"content":"HelloWorld","sort":99}
+  {"id":2,"title":"办公","icon": "document", "parentId":0,"content":"Test","sort":99}
 ])
 //二级菜单的显示与隐藏
 let isShowSecondMenu=ref(true)
