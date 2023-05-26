@@ -77,7 +77,7 @@ const removeTab = (targetId) => {
               <el-dropdown-item @click="removeAllTabs()"><el-icon><FolderDelete /></el-icon>
                 关闭全部
               </el-dropdown-item>
-              <el-dropdown-item @click="refresh()"><el-icon><Refresh /></el-icon>
+              <el-dropdown-item><el-icon><Refresh /></el-icon>
                 刷 新
               </el-dropdown-item>
             </el-dropdown-menu>
